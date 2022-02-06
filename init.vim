@@ -4,21 +4,38 @@
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
+" Airline for a different looking status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Might get rid of nerdtree soon...
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Removed fzf because Telescope has a much better
-" out-of-the-box experience
-Plug 'ryanoasis/vim-devicons'
-Plug 'Yggdroot/indentLine'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" CoC is just completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Gives nice looking icons in Vim :)
+Plug 'ryanoasis/vim-devicons'
+
+" Forgot what this does?
+Plug 'Yggdroot/indentLine'
+
+" Haven't been writing javascript code for this
+" plugin to matter
 Plug 'pangloss/vim-javascript'
+
+" Honestly, doesn't seem like its working on Termux
+" so might uninstall soon...
 Plug 'artur-shaik/vim-javacomplete2'
 
+" For Auto-Braces
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'BurntSushi/ripgrep'
+" Removed fzf because Telescope has a much better
+" out-of-the-box experience
+" ripgrep gives live-grep experience
+Plug 'BurntSushi/ripgrep' 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
@@ -143,10 +160,10 @@ nmap <silent> rn <Plug>(coc-rename)
 " == == ==
 
 " Find files using Telescope command-line sugar.
-nnoremap <silent> ff :Telescope find_files<cr>
-nnoremap <silent> fg :Telescope live_grep<cr>
-nnoremap <silent> fb :Telescope buffers<cr>
-nnoremap <silent> fh :Telescope help_tags<cr>
+nnoremap <silent>ff :Telescope find_files<cr>
+nnoremap <silent>fg :Telescope live_grep<cr>
+nnoremap <silent>fb :Telescope buffers<cr>
+nnoremap <silent>fh :Telescope help_tags<cr>
 
 
 
