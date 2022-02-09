@@ -1,4 +1,4 @@
-" === === === === === ===
+" == === === === === ===
 " |     Plugins here    |
 " === === === === === ===
 
@@ -18,17 +18,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Gives nice looking icons in Vim :)
 Plug 'ryanoasis/vim-devicons'
 
-" Forgot what this does?
-Plug 'Yggdroot/indentLine'
-
-" Haven't been writing javascript code for this
-" plugin to matter
-Plug 'pangloss/vim-javascript'
-
-" Honestly, doesn't seem like its working on Termux
-" so might uninstall soon...
-Plug 'artur-shaik/vim-javacomplete2'
-
 " For Auto-Braces
 Plug 'jiangmiao/auto-pairs'
 
@@ -38,6 +27,19 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'BurntSushi/ripgrep' 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
+" Working with Vim tags
+Plug 'preservim/tagbar'
+Plug 'szw/vim-tags'
+
+" Highlighting :D
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+" Not even sure if this works :/
+Plug 'Shougo/echodoc.vim'
+
+" Git plugin that is...
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -57,7 +59,7 @@ set number
 
 set whichwrap+=<,>,[,]
 
-
+set list lcs=tab:\|\ 
 
 "     == == ==
 " vim-airline configs
@@ -177,6 +179,21 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " let g:JavaComplete_EnableDefaultMappings = 1
 
+
+
+"     == == ==
+" vim-tags configs
+"     == == ==
+
+let g:vim_tags_auto_generate = 1
+
+" == == ==
+" echodoc configs
+" == == ==
+
+" Or, you could use neovim's floating text feature.
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
 
 "  == == ==
 " QoL mappings
