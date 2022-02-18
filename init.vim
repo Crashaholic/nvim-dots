@@ -41,6 +41,20 @@ Plug 'Shougo/echodoc.vim'
 " Git plugin that is...
 Plug 'tpope/vim-fugitive'
 
+" Colors
+Plug 'shaunsingh/nord.nvim'
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+
+" Honestly a really cool plugin
+" Makes the bufferline at the top look like 'tabs'
+Plug 'akinsho/bufferline.nvim'
+
+" I may have this here and set up but I haven't actually seen it yet...
+Plug 'glepnir/dashboard-nvim'
+
+" Tracking to dos everywhere
+Plug 'chauncey-garrett/vim-tasklist'
+
 call plug#end()
 
 
@@ -59,7 +73,9 @@ set number
 
 set whichwrap+=<,>,[,]
 
-set list lcs=tab:\|\ 
+set list lcs=tab:\\ 
+
+set noshowmode
 
 "     == == ==
 " vim-airline configs
@@ -70,8 +86,8 @@ set list lcs=tab:\|\
 let g:airline_powerline_fonts = 1
 
 " Adds a tabline at the top
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Do not draw separators for empty sections (only for the active window) >
 let g:airline_skip_empty_sections = 1
@@ -88,6 +104,48 @@ let g:airline_filetype_overrides = {
   \ }
 " Update section z to just have line number
 let g:airline_section_z = airline#section#create(['linenr'])
+
+" Use the minimalist theme to not let eyes be blasted by colors
+let g:airline_theme = 'minimalist'
+
+let g:airline#extensions#whitespace#enabled = 0
+
+let g:airline_mode_map = {
+      \ '__'     : '-',
+      \ 'c'      : ':',
+      \ 'i'      : 'I',
+      \ 'ic'     : 'I',
+      \ 'ix'     : 'I',
+      \ 'n'      : ' ',
+      \ 'multi'  : 'M',
+      \ 'ni'     : 'N',
+      \ 'no'     : 'N',
+      \ 'R'      : 'R',
+      \ 'Rv'     : 'R',
+      \ 's'      : 'S',
+      \ 'S'      : 'S',
+      \ ''     : 'S',
+      \ 't'      : 'T',
+      \ 'v'      : 'V',
+      \ 'V'      : 'V',
+      \ ''     : 'V',
+      \ }
+
+" Custom separators for airline
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+" Characters taken straight from Spaceline src
+" https://github.com/glepnir/spaceline.vim/blob/master/autoload/spaceline/seperator.vim
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_alt_sep = ''
+let g:airline_left_alt_sep = '|'
+let g:airline_right_alt_sep = '|'
+
+
 
 
 
@@ -153,7 +211,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 
 " Symbol renaming. 
-nmap <silent> rn <Plug>(coc-rename) 
+nnoremap <silent> rn <Plug>(coc-rename) 
 
 
 
@@ -162,30 +220,20 @@ nmap <silent> rn <Plug>(coc-rename)
 " == == ==
 
 " Find files using Telescope command-line sugar.
-nnoremap <silent>ff :Telescope find_files<cr>
-nnoremap <silent>fg :Telescope live_grep<cr>
-nnoremap <silent>fb :Telescope buffers<cr>
-nnoremap <silent>fh :Telescope help_tags<cr>
-
-
-
-"      == == ==
-" JavaComplete configs
-"      == == ==
-
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-"nmap <C-J> <Plug>(JavaComplete-Imports-AddMissing)
-"imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-
-" let g:JavaComplete_EnableDefaultMappings = 1
+nnoremap <leader>tf :Telescope find_files<cr>
+nnoremap <leader>tg :Telescope live_grep<cr>
+nnoremap <leader>tb :Telescope buffers<cr>
+nnoremap <leader>th :Telescope help_tags<cr>
 
 
 
 "     == == ==
 " vim-tags configs
 "     == == ==
-
 let g:vim_tags_auto_generate = 1
+let g:vim_tags_main_file = 'tags'
+
+
 
 " == == ==
 " echodoc configs
@@ -194,6 +242,67 @@ let g:vim_tags_auto_generate = 1
 " Or, you could use neovim's floating text feature.
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'floating'
+
+
+
+" == == == 
+" its all nord
+" == == ==
+colorscheme nord
+
+
+
+" == == ==
+" bufferline configs
+" == == ==
+set termguicolors
+lua << EOF
+require("bufferline").setup{
+options = {
+	diagnostics = "coc",
+	diagnostics_update_in_insert = false,
+	diagnostics_indicator = function(count, level, diagnostics_dict, context)
+	return "("..count..")"
+end,
+	separator_style = "slant",
+}
+}
+EOF
+
+
+
+" == == ==
+" dashboard configs
+" == == ==
+let g:dashboard_default_executive = 'telescope'
+
+
+
+"
+"
+"
+" Opening the Task List
+nnoremap <leader>tl :TaskList<cr>
+
+
+
+"
+"
+"
+
+
+
+" This is specifies the position of the window to be opened.
+" By default it will open at on top. 
+" 0 = Open on top, 1 = Open on the bottom
+let g:tlWindowPosition = 1
+
+" This is the list of tokens to search for 
+" Default is 'FIXME TODO XXX'. 
+" The results are groupped and displayed in the order that they appear.
+let g:tlTokenList = ['FIXME', 'TODO', 'XXX', 'HACK']
+
+
 
 "  == == ==
 " QoL mappings
