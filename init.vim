@@ -49,9 +49,6 @@ Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 " Makes the bufferline at the top look like 'tabs'
 Plug 'akinsho/bufferline.nvim'
 
-" I may have this here and set up but I haven't actually seen it yet...
-Plug 'glepnir/dashboard-nvim'
-
 " Tracking to dos everywhere
 Plug 'chauncey-garrett/vim-tasklist'
 
@@ -268,14 +265,6 @@ end,
 }
 }
 EOF
-
-
-
-" == == ==
-" dashboard configs
-" == == ==
-let g:dashboard_default_executive = 'telescope'
-
 
 
 "
