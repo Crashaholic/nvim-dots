@@ -9,3 +9,7 @@ syntax enable
 
 " I was going to put my own original colors
 " but making my own palette sure does take some time
+
+lua require("lsp-colors").setup()
+
+
