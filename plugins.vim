@@ -40,6 +40,7 @@ Plug 'tpope/vim-fugitive'
 
 " Colors
 Plug 'shaunsingh/nord.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 
 " Honestly a really cool plugin

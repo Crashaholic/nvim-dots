@@ -3,7 +3,14 @@
 " == == ==
 let g:nord_italic = v:false
 
-colorscheme nord
+" colorscheme nord
+
+" nah ive given up on nord
+set background=dark
+
+colorscheme gruvbox
+
+
 
 syntax enable
 

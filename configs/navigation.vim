@@ -12,9 +12,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" let NERDTreeMapOpenInTab='<ENTER>'
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " == == ==
 " Telescope
@@ -27,15 +25,11 @@ nnoremap <leader>tg :Telescope live_grep<cr>
 nnoremap <leader>tb :Telescope buffers<cr>
 nnoremap <leader>th :Telescope help_tags<cr>
 
-
-
 "     == == ==
 " vim-tags configs
 "     == == ==
 let g:vim_tags_auto_generate = 1
 let g:vim_tags_main_file = 'tags'
-
-
 
 " == == ==
 " bufferline configs
@@ -65,10 +59,7 @@ EOF
 
 
 " == Tagbar ==
-
 nnoremap <silent><F8> :TagbarToggle
-
-
 
 " == vim-tasklist ==
 "

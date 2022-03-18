@@ -39,7 +39,7 @@ source ~/.config/nvim/configs/statusline.vim
 source ~/.config/nvim/configs/completion.vim 
 
 " == Colors ==
-source ~/.config/nvim/configs/colors.vim
+source ~/.config/nvim/configs/colr.vim
 
 " == Navigation ==
 source ~/.config/nvim/configs/navigation.vim

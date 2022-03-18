@@ -6,12 +6,8 @@
 " ... why is this disabled by default?
 let g:airline_powerline_fonts = 1
 
-" Adds a tabline at the top
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#formatter = 'unique_tail'
-
 " Do not draw separators for empty sections (only for the active window) >
-let g:airline_skip_empty_sections = 1
+let g:airline_skip_empty_sections = 0
 
 " Custom setup that removes filetype/whitespace from default vim airline bar
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
@@ -60,11 +56,13 @@ endif
 
 " Characters taken straight from Spaceline src
 " https://github.com/glepnir/spaceline.vim/blob/master/autoload/spaceline/seperator.vim
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
 " let g:airline_right_sep = ''
 " let g:airline_left_alt_sep = ''
 " let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_left_alt_sep = '|'
 let g:airline_right_alt_sep = '|'
 
