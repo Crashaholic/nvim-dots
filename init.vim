@@ -47,3 +47,10 @@ source ~/.config/nvim/configs/navigation.vim
 " == colorizer ==
 lua require 'colorizer'.setup()
 
+" custom stuff that im lazy to make a plugin for now
+
+" indents
+
+
+
+

@@ -56,7 +56,8 @@ offsets = {
 }
 EOF
 
-
+nnoremap <silent>b] :BufferLineCycleNext<CR>
+nnoremap <silent>b[ :BufferLineCyclePrev<CR>
 
 " == Tagbar ==
 nnoremap <silent><F8> :TagbarToggle
@@ -65,6 +66,7 @@ nnoremap <silent><F8> :TagbarToggle
 "
 " Opening the Task List
 nnoremap <leader>tl :TaskList<cr>
+command Todo TaskList
 
 " This is specifies the position of the window to be opened.
 " By default it will open at on top. 

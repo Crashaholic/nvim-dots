@@ -53,3 +53,7 @@ Plug 'chauncey-garrett/vim-tasklist'
 Plug 'folke/trouble.nvim'
 
 Plug 'folke/lsp-colors.nvim'
+
+" for glsl highlighting
+Plug 'tikhomirov/vim-glsl'
+
