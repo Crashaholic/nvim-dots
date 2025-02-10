@@ -1,16 +1,10 @@
-" Airline for a different looking status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 
-" Might get rid of nerdtree soon...
-Plug 'preservim/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons' " Recommended (for coloured icons)
 
-" CoC is just completion
+" CoC is completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Gives nice looking icons in Vim :)
-Plug 'ryanoasis/vim-devicons'
 
 " For Auto-Braces
 Plug 'jiangmiao/auto-pairs'
@@ -26,22 +20,17 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'preservim/tagbar'
 Plug 'szw/vim-tags'
 
-" Highlighting :D
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-
 " Colored bg for typing
 Plug 'norcalli/nvim-colorizer.lua'
 
 " Not even sure if this works :/
 Plug 'Shougo/echodoc.vim'
 
-" Git plugin that is...
-Plug 'tpope/vim-fugitive'
+" Using Neogit for Git needs
+Plug 'NeogitOrg/neogit', { 'tag' : 'v0.0.1' }
 
 " Colors
-Plug 'shaunsingh/nord.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 
 " Honestly a really cool plugin
 " Makes the bufferline at the top look like 'tabs'
@@ -51,8 +40,6 @@ Plug 'akinsho/bufferline.nvim'
 Plug 'chauncey-garrett/vim-tasklist'
 
 Plug 'folke/trouble.nvim'
-
-Plug 'folke/lsp-colors.nvim'
 
 " for glsl highlighting
 Plug 'tikhomirov/vim-glsl'

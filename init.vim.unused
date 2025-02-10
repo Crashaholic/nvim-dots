@@ -1,15 +1,14 @@
+" This file was written so so long ago that I kinda don't wanna change it from
+" a VimScript file because it just... works...
+" No need to reinvent the wheel and all...
+
 " == === === === === ===
 " |     Plugins here    |
 " === === === === === ===
-
 " uses vim-plug
-call plug#begin(stdpath('data') . '/plugged')
-
+call plug#begin(stdpath('config') . '/plugins')
 source ~/.config/nvim/plugins.vim
-
 call plug#end()
-
-
 
 "     == == ==
 " Vim Configurations
@@ -18,7 +17,7 @@ call plug#end()
 set encoding=UTF-8
 
 set tabstop=4
-set noexpandtab
+" set noexpandtab
 set shiftwidth=4
 
 set autoindent
@@ -43,14 +42,4 @@ source ~/.config/nvim/configs/colr.vim
 
 " == Navigation ==
 source ~/.config/nvim/configs/navigation.vim
-
-" == colorizer ==
-lua require 'colorizer'.setup()
-
-" custom stuff that im lazy to make a plugin for now
-
-" indents
-
-
-
 

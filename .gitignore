@@ -1,1 +1,4 @@
 [Aa]utoload
+
+/configs/*
+/plugins/*
