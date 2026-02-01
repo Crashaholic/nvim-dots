@@ -45,25 +45,25 @@ I am considering shifting to Android development, with Termux and utilizing [Bui
 
 | Plugin name | What is this for? | Notes |
 |--|--|--|
-| [blink.cmp]("https://github.com/saghen/blink.cmp")|Completion engine|--|
-| [catppuccin]("https://github.com/catppuccin/nvim")|Catppuccin colors, something new|--|
-| [nvim-colorizer.lua]("https://github.com/norcalli/nvim-colorizer.lua")|Colorizer for HTML colors, when needed|--|
-| [Comment.nvim]("https://github.com/numToStr/Comment.nvim")|Quick commenting|--|
-| [gentags.lua]("https://github.com/JMarkin/gentags.lua")|Automatic tag generation|--|
-| [gitsigns.nvim]("https://github.com/lewis6991/gitsigns.nvim")|Git blame|Hasn't seemed to work for me :/|
+| [blink.cmp](https://github.com/saghen/blink.cmp)|Completion engine|--|
+| [catppuccin](https://github.com/catppuccin/nvim)|Catppuccin colors, something new|--|
+| [Comment.nvim](https://github.com/numToStr/Comment.nvim)|Quick commenting|--|
+| [gentags.lua](https://github.com/JMarkin/gentags.lua)|Automatic tag generation|--|
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)|Git blame|Hasn't seemed to work for me :/|
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)| Pretties up the status line | -- |
-| [luasnip]("https://github.com/L3MON4D3/LuaSnip")|Snippet engine|--|
-| [mason.nvim]("https://github.com/mason-org/mason.nvim")|Get LSPs in a pinch|--|
-| [mason-lspconfig.nvim]("https://github.com/williamboman/mason-lspconfig.nvim")|Bridge the LSPs to the configs|--|
-| [nvim-autopairs]("https://github.com/windwp/nvim-autopairs")|Auto brace|--|
-| [nvim-lspconfig]("https://github.com/neovim/nvim-lspconfig")|Redundant it looks like?|Grabbed it just in case|
-| [oil.nvim]("https://github.com/stevearc/oil.nvim")|File navigation|`\<leader\>oi`|
-| [oil-git.nvim]("https://github.com/benomahony/oil-git.nvim")|Show file status on oil.nvim|--|
-| [todo-comments.nvim]("https://github.com/folke/todo-comments.nvim")|TODO getter|--|
-| [nvim-treesitter]("https://github.com/nvim-treesitter/nvim-treesitter")|Fast syntax highlighting (I think?)|--|
+| [luasnip](https://github.com/L3MON4D3/LuaSnip)|Snippet engine|--|
+| [mason.nvim](https://github.com/mason-org/mason.nvim)|Get LSPs in a pinch|--|
+| [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)|Bridge the LSPs to the configs|--|
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs)|Auto brace|--|
+| [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)|Colorizer for HTML colors, when needed|--|
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)|Redundant it looks like?|Grabbed it just in case|
+| [oil.nvim](https://github.com/stevearc/oil.nvim)|File navigation|`<leader>oi`|
+| [oil-git.nvim](https://github.com/benomahony/oil-git.nvim)|Show file status on oil.nvim|--|
+| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)|TODO getter|--|
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)|Fast syntax highlighting (I think?)|--|
 | [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)|Navigation|`C-f` all the way|
-| [Trouble.nvim]("https://github.com/folke/trouble.nvim")|Diagnostics jump|--|
-| [which-key.nvim]("https://github.com/folke/which-key.nvim")|See what keystrokes does what|--|
+| [Trouble.nvim](https://github.com/folke/trouble.nvim)|Diagnostics jump|--|
+| [which-key.nvim](https://github.com/folke/which-key.nvim)|See what keystrokes does what|--|
 | [vim-fugitive](https://github.com/tpope/vim-fugitive) |Git integration|--|
 
 # Keybindings
@@ -76,6 +76,7 @@ I am considering shifting to Android development, with Termux and utilizing [Bui
 |Insert|\<C-y\>|Trigger Completion|
 |Insert|\<C-n\>|Cycle Next Completion|
 |Insert|\<C-p\>|Cycle Prev Completion|
+|Normal|\<leader\>oi|Oil Navigation|
 |Normal|\<C-f\>|Find File \[Telescope\]|
 |Normal|\<leader\>tg|Live Grep \[Telescope\]|
 |Normal|\<leader\>tb|Buffers \[Telescope\]|
