@@ -12,15 +12,7 @@ nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
 inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
 vnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
 
-" To have the clipboard work both on Nvim and Windows
-set clipboard=unnamedplus
+" 2026 update: majority of the lines below here were already part of
+" ./lua/config/options.lua
+" No need to repeat what's already there so...
 
-" Mouse clicking
-set mouse=a
-"vmap <LeftRelease> "*ygv
-
-" bufferline.nvim looks a lot better anyways
-GuiTabline 0
-
-" Change the font, forgot where I found this to be very honest
-GuiFont! JetbrainsMono Nerd Font:h10

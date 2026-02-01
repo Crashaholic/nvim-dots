@@ -1,40 +1,43 @@
--- == === === === === ===
--- |     Plugins here    |
--- === === === === === ===
--- Using vim-plug in Lua
-vim.cmd([[
-    call plug#begin(stdpath('config') . '/plugins')
-    source ~/.config/nvim/plugins.vim
-    call plug#end()
-]])
+-- init.lua
 
--- == == ==
--- Vim Configurations
--- == == ==
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- init.lua is completely overhauled cuz the old one was... ha...
 
-vim.opt.encoding = "UTF-8"
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
-vim.opt.tabstop = 4
-vim.opt.expandtab = false
-vim.opt.shiftwidth = 4
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.opt.autoindent = true
-vim.opt.number = true
-vim.opt.whichwrap:append("<,>,[,]")
+-- Setup lazy.nvim
+require("lazy").setup({
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	-- colorscheme that will be used when installing plugins.
+	install = { colorscheme = { "retrobox" } },
+	-- automatically check for plugin updates
+	checker = { enabled = true },
+})
 
-vim.opt.showmode = false
+require("config.lsp")
+require("config.options")
+require("config.keymap")
 
-vim.opt.termguicolors = true
-
--- Save files using Control-S
-vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = true })
-
-require('navigation')
-require('aesthetics')
-require('completion')
-require('git')

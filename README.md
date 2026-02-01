@@ -1,4 +1,24 @@
-# Crash's init.vim
+# Crash's init.lua
+## Update: 31/01/2026
+Say "Hello" to my yearly update, I guess. I dunno, I just get that itch to update my Neovim config from time to time.
+
+This commit brings about actual LSP integration, as the Neovim version required is bumped up to `v0.11.5` to take advantage of the built-in LSP capabilities. 
+
+I also don't really know what I want out of this newer config besides trying to get it more inline with how other people have their configs. As such, it's pretty generalized, I guess. 
+
+I still haven't learned how to use Vim/Neovim's motions and such, still just pressing arrow keys for each line, for each character. Yes, it's painful, and I want to correct that. Some other time though, no rush.
+
+Uhh, lessee... ah yeah, as mentioned above, most of the plugins in use now are more like what you'd see in a typical(-ish) Neovim config (I hope?). So there's `treesitter`, `mason`, `blink` for completion, experimenting with `oil`, so on and so forth.
+
+And uhh, the original README doesn't really have to be preserved since I *am* using Github.
+
+For clipboard shenanigans, I prefer to just be able to paste straight from my system.
+```
+sudo apt install xclip
+```
+
+Also, in case of C++ development, ***MAKE SURE `libstdc++-12-dev` IS INSTALLED clangd DOES NOT HAVE ACCESS TO g++ HEADERS BECAUSE YES***
+
 ## Update: 11/02/2025
 Wow. I barely even use Neovim anymore.
 
@@ -15,74 +35,50 @@ To get CCLS working, based on my current WSL2 setup:
 sudo snap install ccls --classic
 ```
 
-As it stands right now:
-|Old Plugin|New Plugin|
-|--|--|
-|fugitive|Neogit|
-|airline|lualine|
-|NERDTree|nvim-tree|
+---
 
-## Original Desc
-This Neovim config is intended for C++ development.
+I use Neovim on my phone via Termux, which allows me to write code on the go when I am away from my PC. 
 
-I use Neovim on my phone via Termux, which allows me to write code on the go when I am away from my PC (which is slowly becoming more and more often). However, it is not really intended for building since I still am learning how some of these tools work, especially [ccls](https://github.com/MaskRay/ccls).
+I am considering shifting to Android development, with Termux and utilizing [BuildAPKs](https://github.com/BuildAPKs/buildAPKs), which means that this config might soon work for both Java and C++. Exciting.
 
-I am considering shifting to Android development, also with Termux and utilizing [BuildAPKs](https://github.com/BuildAPKs/buildAPKs), which means that this config might soon work for both Java and C++. Exciting.
+# Plugins
 
-## Plugins
-_**Note that this list could be out-of-date. Its hard to maintain this list when the plugins on here is ever-changing.**_
-
-| Plugin name | Purpose | Notes |
+| Plugin name | What is this for? | Notes |
 |--|--|--|
+| [blink.cmp]("https://github.com/saghen/blink.cmp")|Completion engine|--|
+| [catppuccin]("https://github.com/catppuccin/nvim")|Catppuccin colors, something new|--|
+| [nvim-colorizer.lua]("https://github.com/norcalli/nvim-colorizer.lua")|Colorizer for HTML colors, when needed|--|
+| [Comment.nvim]("https://github.com/numToStr/Comment.nvim")|Quick commenting|--|
+| [gentags.lua]("https://github.com/JMarkin/gentags.lua")|Automatic tag generation|--|
+| [gitsigns.nvim]("https://github.com/lewis6991/gitsigns.nvim")|Git blame|Hasn't seemed to work for me :/|
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)| Pretties up the status line | -- |
-| [CoC](https://github.com/neoclide/coc.nvim)| Completion and LSP client |--|
-| [nvim-tree](https://github.com/nvim-tree/nvim-tree)| Navigation | Much less used ever since Telescope was introduced to my set up |
-| [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)|Navigation|`<leader>f` all the way|
-| [auto-pairs](https://github.com/jiangmiao/auto-pairs)|Auto closing of quotes and braces |--|
-| [vim-tags](https://github.com/szw/vim-tags)|Tag generation|--|
-| [Tagbar](https://github.com/preservim/tagbar)|Tag navigation|--|
-| [vim-fugitive](https://github.com/tpope/vim-fugitive)   |Git integration|--|
-| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)|Buffer navigation|--|
-| [vim-tasklist](https://github.com/chauncey-garrett/vim-tasklist)   |TODO list navigation|Left TODOs everywhere and couldnt find them, so I got this plugin to find them. INSTALLED AS `Plug 'chauncey-garrett/vim-tasklist'`.|
-
-# Vim settings
-
-```vim
-set encoding=UTF-8
-
-set tabstop=4
-set noexpandtab
-set shiftwidth=4
-
-set autoindent
-set number
-
-" Makes Vim go to next line when end of line and right-arrow
-" or previous line when beginning of line and left-arrow
-set whichwrap+=<,>,[,]
-
-set noshowmode
-```
+| [luasnip]("https://github.com/L3MON4D3/LuaSnip")|Snippet engine|--|
+| [mason.nvim]("https://github.com/mason-org/mason.nvim")|Get LSPs in a pinch|--|
+| [mason-lspconfig.nvim]("https://github.com/williamboman/mason-lspconfig.nvim")|Bridge the LSPs to the configs|--|
+| [nvim-autopairs]("https://github.com/windwp/nvim-autopairs")|Auto brace|--|
+| [nvim-lspconfig]("https://github.com/neovim/nvim-lspconfig")|Redundant it looks like?|Grabbed it just in case|
+| [oil.nvim]("https://github.com/stevearc/oil.nvim")|File navigation|`\<leader\>oi`|
+| [oil-git.nvim]("https://github.com/benomahony/oil-git.nvim")|Show file status on oil.nvim|--|
+| [todo-comments.nvim]("https://github.com/folke/todo-comments.nvim")|TODO getter|--|
+| [nvim-treesitter]("https://github.com/nvim-treesitter/nvim-treesitter")|Fast syntax highlighting (I think?)|--|
+| [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)|Navigation|`C-f` all the way|
+| [Trouble.nvim]("https://github.com/folke/trouble.nvim")|Diagnostics jump|--|
+| [which-key.nvim]("https://github.com/folke/which-key.nvim")|See what keystrokes does what|--|
+| [vim-fugitive](https://github.com/tpope/vim-fugitive) |Git integration|--|
 
 # Keybindings
 
 |Mode|Keybind|Action|
 |--|--|--|
-|Normal 	|\<C-s\> 			|Writes file|
-|Insert 	|\<C-s\> 			|Writes file|
-|Visual 	|\<C-s\>  			|Writes file|
-|Normal 	|\<leader\>q		|Close Buffer|
-|Insert 	|\<C-Space\>		|Trigger Completion \[COC\]|
-|Normal 	|K 					|Show Documentation \[COC\]|
-|Insert     |\<Tab\> 			|Trigger Completion \[COC\]|
-|Normal     |\<leader\>F 	    |Toggle nvim-tree \[nvim-tree\]|
-|Normal 	|\<leader\>f 	    |Focus nvim-tree \[nvim-tree\]|
-|Normal     |\<leader\>b\]      |Cycle Next \[bufferline\]|
-|Normal     |\<leader\>b\[      |Cycle Prev \[bufferline\]|
-|Normal     |\<C-f\> 			|Find File \[Telescope\]|
-|Normal     |\<leader\>tg		|Live Grep \[Telescope\]|
-|Normal     |\<leader\>tb		|Buffers \[Telescope\]|
-|Normal     |\<leader\>th		|Help Tags \[Telescope\]|
-|Normal 	|\<F8\> 			|Toggle Tagbar \[Tagbar\]| 
-|Normal 	|\<leader\>tl 		|Task List \[TaskList\]|
- 
+|Normal|\<leader\>bd|Close Buffer|
+|Insert|\<C-Space\>|Trigger Completion|
+|Normal|K|Show Documentation|
+|Insert|\<C-y\>|Trigger Completion|
+|Insert|\<C-n\>|Cycle Next Completion|
+|Insert|\<C-p\>|Cycle Prev Completion|
+|Normal|\<C-f\>|Find File \[Telescope\]|
+|Normal|\<leader\>tg|Live Grep \[Telescope\]|
+|Normal|\<leader\>tb|Buffers \[Telescope\]|
+|Normal|\<leader\>th|Help Tags \[Telescope\]|
+|Normal|\<leader\>tt|Toggle between 2 and 4 tab spaces|
+
