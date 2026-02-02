@@ -10,14 +10,14 @@ vim.keymap.set('n', '<leader>tt', ':TTab<cr>')
 vim.keymap.set('n', '<leader>qq', ':q<cr>')
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(event)
-    local opts = { buffer = event.buf }
+	callback = function(event)
+		local opts = { buffer = event.buf }
 
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-  end,
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+	end,
 })
 
 vim.keymap.set('n', '<leader>bd', ':bp<cr>:bd #<cr>')
