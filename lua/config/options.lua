@@ -40,5 +40,21 @@ vim.api.nvim_create_user_command('TTab',
 			print("Indent set to 4 spaces (buffer)")
 		end
 	end
-, {})
+, {}
+)
+
+vim.api.nvim_create_user_command('DefMakefileDir',
+	function(opts)
+		local user_input = vim.fn.input("Where is makefile?: ")
+		if user_input ~= "" then
+			vim.w.makefile_dir = user_input
+		end
+	end
+, {}
+)
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
